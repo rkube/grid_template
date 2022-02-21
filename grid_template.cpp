@@ -14,12 +14,11 @@
 
 int main(void){
     constexpr int N{18};
-    constexpr double L{1.0};
-    constexpr double y0{0.3};
     static_assert((N/2) % 2 == 1);      // Formulas implemented require that N/2 is odd, f.ex. N=10, 18
-    Grid<N> my_grid(L, y0);
+    Grid<N> my_grid;
+
     std::cout << "The length of the grid is: " << my_grid.get_length() << std::endl;
-    for(int i = 0; i < N; i++){
+    for(size_t i = 0; i < N-1; i++){
         std::cout << "The grid spacing at point " << i << " is: " << my_grid.get_dx(i) << std::endl;
     }
 }
